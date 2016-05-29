@@ -1,5 +1,6 @@
 $(document).ready(function () {
     var throwSize = 4;
+    var throwCount = 0;
 
     function rollDie(diceThrow) {
         var roll = Math.floor(Math.random() * 3); // 0, 1, or 2
@@ -31,23 +32,57 @@ $(document).ready(function () {
         return result.score;
     }
 
+    // returns score of roll as int
+    function throwDice(numDice) {
+        var totalScore = 0;
+
+        for (var i = 0; i < numDice; i++) {
+            $(".dieFrame:first").clone().appendTo(".diceThrow:last");
+
+            // use these to style the die
+            var text;
+            var dieFrameClass;
+
+            // -1, 0, or 1
+            var rollValue = (Math.floor(Math.random() * 3)) - 1;
+
+            switch (rollValue) {
+                case -1:
+                    text = "-";
+                    dieFaceClass = "failure";
+                    break;
+                case 0:
+                    text = String.fromCharCode(160);
+                    dieFaceClass = "neutral";
+                    break;
+                case 1:
+                    text = "+";
+                    dieFaceClass = "success";
+                    break;
+            }
+
+            $(".dieText:last").text(text);
+            $(".dieFace:last").addClass(dieFaceClass);
+            $(".dieFrame:last").fadeIn();
+
+            totalScore += rollValue;
+        }
+
+        return totalScore;
+    }
 
     $("#roll").click(function () {
-        $("#rolls").append("<div></div>");
-        var diceThrow = $("#rolls div:last"); // element with a handful of thrown dice
-        diceThrow.addClass("diceThrow");
+        // new diceThrow div to put the dice in
+        $(".diceThrow:first").clone().appendTo("#rolls");
 
+        var totalScore = throwDice(4);
 
-        var totalScore = 0;
-        for (var i = 0; i < 4; i++) {
-            totalScore += rollDie(diceThrow);
-        }
-        diceThrow.append("<div>" + totalScore + "</div>");
-        
+        // displayScore(totalScore);
+
+        // displayResult(totalScore);
     });
 
     $("#clear").click(function () {
-        $("#rolls").empty();
+        $(".diceThrow:gt(0)").empty();
     });
-
 });
