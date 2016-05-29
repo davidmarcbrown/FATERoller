@@ -54,8 +54,8 @@ body{
 }
 
 .dieFrame {
-    width: 10vh;
-    height: 10vh;
+    width: 15vw;
+    height: 15vw;
     display: inline-block;
     margin: 2vw 1vw;
 }
@@ -64,7 +64,7 @@ body{
     position: relative;
     height: 100%;
     width: 100%;
-    border-radius: 2vh;
+    border-radius: 3vw;
 }
 
 .dieText {
@@ -74,14 +74,14 @@ body{
     transform: translate(-50%, -50%);
     color: white;
     font-weight: bold;
-    font-size: 5vh;
+    font-size: 5vw;
 }
 
 .infoFrame {
-    height: 10vh;
-    width: 10vh;
+    height: 15vw;
+    width: 15vw;
     display: inline-block;
-    margin:0;
+    margin: 2vw 1vw;
 }
 
 .infoContainer{
@@ -97,7 +97,7 @@ body{
     left: 50%;
     transform: translate(-50%, -50%);
     font-weight: bold;
-    font-size: 5vh;
+    font-size: 5vw;
 }
 
 .success {
@@ -110,4 +110,22 @@ body{
 
 .neutral {
     background-color: grey;
+}
+
+@media all and (orientation:landscape) {    
+    .infoFrame {
+        height: 15vh;
+        width: 15vh;
+            margin: 2vh 1vh;
+    }
+
+    .dieFrame {
+        width: 15vh;
+        height: 15vh;
+        margin: 2vh 1vh;
+    }
+    
+    .dieFace {
+        border-radius: 3vh;
+    }
 }
