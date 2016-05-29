@@ -33,6 +33,7 @@ $(document).ready(function () {
 
             $(".dieText:last").text(text);
             $(".dieFace:last").addClass(dieFaceClass);
+
             $(".dieFrame:last").fadeIn();
 
             totalScore += rollValue;
@@ -43,7 +44,7 @@ $(document).ready(function () {
 
     function displayScore(totalScore) {
         $(".infoFrame:first").clone().appendTo(".diceThrow:last");
-        $(".infoText:last").text(totalScore>0?"+"+totalScore:totalScore);
+        $(".infoText:last").text(totalScore > 0 ? "+" + totalScore : totalScore);
         $(".infoFrame:last").fadeIn();
     }
 
@@ -51,11 +52,19 @@ $(document).ready(function () {
         // new diceThrow div to put the dice in
         $(".diceThrow:first").clone().appendTo("#rolls");
 
+        // throws the dice (and displays them)
         var totalScore = throwDice(throwSize);
 
         displayScore(totalScore);
 
-        // displayResult(totalScore);
+        // scroll to bottom of page
+        // smoothly
+        $('html, body').animate({
+            scrollTop: $(document).height() - $(window).height()
+        },
+            300,
+            "swing"
+        );
     });
 
     $("#clear").click(function () {
