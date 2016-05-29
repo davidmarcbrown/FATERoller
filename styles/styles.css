@@ -1,0 +1,38 @@
+#rolls {
+    text-align: center;
+}
+
+#controls {
+    position: fixed;
+    text-align: center;
+    width: 100%;
+    bottom: 10px;
+}
+
+.diceThrow {
+    margin-bottom: 5px;
+}
+
+.die {
+    color: white;
+    font-weight: bold;
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+}
+
+.pink{
+    background-color: pink;
+}
+
+.success {
+    background-color: green;
+}
+
+.failure {
+    background-color: red;
+}
+
+.neutral {
+    background-color: grey;
+}
