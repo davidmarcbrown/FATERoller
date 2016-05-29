@@ -41,11 +41,11 @@ body{
 }
 
 #rollButton{
-    background-color: lightblue;
+    background-color: green;
 }
 
 #clearButton{
-    background-color: pink;
+    background-color: gray;
 }
 
 .diceThrow {
