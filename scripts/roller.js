@@ -1,36 +1,6 @@
 $(document).ready(function () {
+
     var throwSize = 4;
-    var throwCount = 0;
-
-    function rollDie(diceThrow) {
-        var roll = Math.floor(Math.random() * 3); // 0, 1, or 2
-        var result = {};
-
-        switch (roll) {
-            case 0:
-                result.text = "+";
-                result.class = "success";
-                result.score = 1;
-                break;
-            case 1:
-                result.text = "-";
-                result.class = "failure";
-                result.score = -1;
-                break;
-            case 2:
-                // text is non-breaking space
-                result.text = String.fromCharCode(160);
-                result.class = "neutral";
-                result.score = 0;
-                break;
-        }
-
-        diceThrow.append("<div></div>");
-        var lastDie = $("#rolls .diceThrow div:last");
-        lastDie.text(result.text);
-        lastDie.addClass("die " + result.class);
-        return result.score;
-    }
 
     // returns score of roll as int
     function throwDice(numDice) {
@@ -39,7 +9,7 @@ $(document).ready(function () {
         for (var i = 0; i < numDice; i++) {
             $(".dieFrame:first").clone().appendTo(".diceThrow:last");
 
-            // use these to style the die
+            // use these to style and populate the die
             var text;
             var dieFrameClass;
 
@@ -71,18 +41,24 @@ $(document).ready(function () {
         return totalScore;
     }
 
+    function displayScore(totalScore) {
+        $(".infoFrame:first").clone().appendTo(".diceThrow:last");
+        $(".infoText:last").text(totalScore>0?"+"+totalScore:totalScore);
+        $(".infoFrame:last").fadeIn();
+    }
+
     $("#roll").click(function () {
         // new diceThrow div to put the dice in
         $(".diceThrow:first").clone().appendTo("#rolls");
 
-        var totalScore = throwDice(4);
+        var totalScore = throwDice(throwSize);
 
-        // displayScore(totalScore);
+        displayScore(totalScore);
 
         // displayResult(totalScore);
     });
 
     $("#clear").click(function () {
-        $(".diceThrow:gt(0)").empty();
+        $(".diceThrow:gt(0)").remove();
     });
 });
