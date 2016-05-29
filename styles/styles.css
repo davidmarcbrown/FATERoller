@@ -3,10 +3,28 @@
 }
 
 #controls {
+    margin:0px;
+    padding: 1vh;
     position: fixed;
     text-align: center;
     width: 100%;
     bottom: 10px;
+    font-size: 100px;
+    background-color: purple;
+}
+
+.button{
+    margin: 1vh;
+    padding: 1vh;
+    background-color: blue;
+}
+
+#rollButton{
+    background-color: lightblue;
+}
+
+#clearButton{
+    
 }
 
 .diceThrow {

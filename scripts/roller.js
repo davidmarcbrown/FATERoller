@@ -48,7 +48,7 @@ $(document).ready(function () {
         $(".infoFrame:last").fadeIn();
     }
 
-    $("#roll").click(function () {
+    $("#rollButton").click(function () {
         // new diceThrow div to put the dice in
         $(".diceThrow:first").clone().appendTo("#rolls");
 
@@ -67,7 +67,7 @@ $(document).ready(function () {
         );
     });
 
-    $("#clear").click(function () {
+    $("#clearButton").click(function () {
         $(".diceThrow:gt(0)").remove();
     });
 });
