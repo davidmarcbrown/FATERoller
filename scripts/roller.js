@@ -59,12 +59,10 @@ $(document).ready(function () {
 
         // scroll to bottom of page
         // smoothly
-        $('html, body').animate({
-            scrollTop: $(document).height() - $(window).height()
-        },
-            300,
-            "swing"
-        );
+        $("#rolls").animate({
+            scrollTop: $("#rolls").prop("scrollHeight")
+        }, 100);
+
     });
 
     $("#clearButton").click(function () {

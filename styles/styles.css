@@ -1,22 +1,43 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+
+.container {
+    margin:0px;
+    padding:0px;
+}
+
 #rolls {
     text-align: center;
+    margin:0px;
+    padding:0px;
+    height: 80vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 #controls {
     margin:0px;
-    padding: 1vh;
+    padding: 0;
     position: fixed;
     text-align: center;
+    height: 20vh;
     width: 100%;
-    bottom: 10px;
-    font-size: 100px;
-    background-color: purple;
+    bottom: 0px;
+    font-size: 3vh;
+    background-color: black;
 }
 
-.button{
-    margin: 1vh;
-    padding: 1vh;
-    background-color: blue;
+.button, .button:link, .button:visited, button:hover{
+    margin: 3vh;
+    padding: 5vh;
+    background-color: grey;
+    color: inherit;
+    text-decoration: inherit;
+    display: inline-block;
+    border-radius: 2vh;
+    color: white;
 }
 
 #rollButton{
@@ -24,7 +45,7 @@
 }
 
 #clearButton{
-    
+    background-color: pink;
 }
 
 .diceThrow {
@@ -33,17 +54,17 @@
 }
 
 .dieFrame {
-    width: 100px;
-    height: 100px;
+    width: 10vh;
+    height: 10vh;
     display: inline-block;
-    margin:10px 5px 10px 5px;
+    margin: 2vw 1vw;
 }
 
 .dieFace {
     position: relative;
     height: 100%;
     width: 100%;
-    border-radius: 15%;
+    border-radius: 2vh;
 }
 
 .dieText {
@@ -53,14 +74,14 @@
     transform: translate(-50%, -50%);
     color: white;
     font-weight: bold;
-    font-size: 3em;
+    font-size: 5vh;
 }
 
 .infoFrame {
-    height: 100px;
-    width: 100px;
+    height: 10vh;
+    width: 10vh;
     display: inline-block;
-    margin:10px 5px 10px 5px;
+    margin:0;
 }
 
 .infoContainer{
@@ -76,7 +97,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     font-weight: bold;
-    font-size: 3em;
+    font-size: 5vh;
 }
 
 .success {
